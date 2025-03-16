@@ -5,6 +5,8 @@ import TaskItem from "@tiptap/extension-task-item";
 import TaskList from "@tiptap/extension-task-list";
 import Table from "@tiptap/extension-table";
 import Image from "@tiptap/extension-image";
+import {Color} from "@tiptap/extension-color";
+import Highlight from "@tiptap/extension-highlight";
 import FontFamily from "@tiptap/extension-font-family";
 import TextStyle from "@tiptap/extension-text-style";
 import ImageResize from "tiptap-extension-resize-image";
@@ -50,7 +52,10 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
-      FontFamily,
+      Color,
+      Highlight.configure({
+        multicolor:true,
+      }),
       TextStyle,
       Underline,
       Image,
