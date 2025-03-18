@@ -6,8 +6,8 @@ import TaskList from "@tiptap/extension-task-list";
 import Table from "@tiptap/extension-table";
 import Image from "@tiptap/extension-image";
 import TextAlign from "@tiptap/extension-text-align";
-import Link from "@tiptap/extension-link"
-import {Color} from "@tiptap/extension-color";
+import Link from "@tiptap/extension-link";
+import { Color } from "@tiptap/extension-color";
 import Highlight from "@tiptap/extension-highlight";
 import FontFamily from "@tiptap/extension-font-family";
 import TextStyle from "@tiptap/extension-text-style";
@@ -20,32 +20,33 @@ import { useEditor, EditorContent } from "@tiptap/react";
 
 import { useEditorStore } from "@/store/use-editor-store";
 import { FontSizeExtension } from "@/extensions/font-size";
+import { LineHeightExtension } from "@/extensions/line-height";
 export const Editor = () => {
   const { setEditor } = useEditorStore();
   const editor = useEditor({
     onCreate({ editor }) {
       setEditor(editor);
     },
-    onDestroy(){
-        setEditor(null);
+    onDestroy() {
+      setEditor(null);
     },
-    onUpdate({editor}){
-        setEditor(editor);
+    onUpdate({ editor }) {
+      setEditor(editor);
     },
-    onSelectionUpdate({editor}){
-        setEditor(editor);
+    onSelectionUpdate({ editor }) {
+      setEditor(editor);
     },
-    onTransaction({editor}){
-        setEditor(editor);
+    onTransaction({ editor }) {
+      setEditor(editor);
     },
-    onFocus({editor}){
-        setEditor(editor);
+    onFocus({ editor }) {
+      setEditor(editor);
     },
-    onBlur({editor}){
-        setEditor(editor);
+    onBlur({ editor }) {
+      setEditor(editor);
     },
-    onContentError({editor}){
-        setEditor(editor);
+    onContentError({ editor }) {
+      setEditor(editor);
     },
     editorProps: {
       attributes: {
@@ -56,18 +57,19 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
+      LineHeightExtension,
       FontSizeExtension,
       TextAlign.configure({
-        types:["heading","paragraph"]
+        types: ["heading", "paragraph"],
       }),
       Link.configure({
         openOnClick: false,
-        autolink:true,
-        defaultProtocol:"https"
+        autolink: true,
+        defaultProtocol: "https",
       }),
       Color,
       Highlight.configure({
-        multicolor:true,
+        multicolor: true,
       }),
       TextStyle,
       Underline,
