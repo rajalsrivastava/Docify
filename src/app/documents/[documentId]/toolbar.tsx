@@ -538,7 +538,7 @@ const ToolbarButton = ({
     <button
       onClick={onClick}
       className={cn(
-        "text-sm h-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80",
+        "text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80",
         isActive && "bg-neutral-200/80"
       )}
     >
@@ -609,8 +609,8 @@ export const Toolbar = () => {
       {
         label: "Comment",
         icon: MessageSquarePlusIcon,
-        onClick: () => console.log("TODO: Comment"),
-        isActive: false, // TODO:Enable this functionality
+        onClick: () => editor?.chain().focus().addPendingComment().run(),
+        isActive: editor?.isActive("liveblocksCommentMark"),
       },
       {
         label: "List Todo",
