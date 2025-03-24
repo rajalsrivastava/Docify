@@ -22,7 +22,7 @@ export const TemplatesGallery = () => {
   const onTemplateClick = (title: string, initialContent: string) => {
     setIsCreating(true);
     create({ title, initialContent })
-      .catch((e) => toast.error("Something went wrong"))
+      .catch(() => toast.error("Something went wrong"))
 
       .then((documentId) => {
         toast.success("Document created");

@@ -10,7 +10,7 @@ interface DocumentMenuProps {
   title: string;
   onNewTab: (id: Id<"documents">) => void;
 }
-export const DocumentMenu = ({ documentId, title, onNewTab }) => {
+export const DocumentMenu = ({ documentId, title, onNewTab }:DocumentMenuProps) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
