@@ -10,7 +10,7 @@ export const Ruler = () => {
     storage.set("leftMargin",position);
   },[]);
 
-  const rightMargin = useStorage((root) => root.rightMargin);
+  const rightMargin = useStorage((root) => root.rightMargin)??56;
   const setRightMargin =useMutation(({storage},position:number)=>{
     storage.set("rightMargin",position);
   },[]);
